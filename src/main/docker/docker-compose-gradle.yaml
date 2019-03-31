@@ -1,0 +1,11 @@
+version: '2.1'
+networks:
+  quarkus-net:
+    driver: bridge
+services:
+  gradle-app:
+    build:
+      context: ../../..
+      dockerfile: ./src/main/docker/Dockerfile.gradle.jvm
+    networks: [quarkus-net]
+    ports: ['8080:8080']
